@@ -1,0 +1,15 @@
+{
+  "required": true,
+  "minVersion": "0.8",
+  "package": "vini2003.xyz.withermorph.mixin",
+  "compatibilityLevel": "JAVA_8",
+  "mixins": [
+    "common.PlayerEntityMixin"
+  ],
+  "client": [
+    "client.PlayerEntityRendererMixin"
+  ],
+  "injectors": {
+    "defaultRequire": 1
+  }
+}

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "id": "bodyshuffle",
+  "id": "withermorph",
   "version": "${version}",
   "name": "Body Shuffle",
   "description": "A mod adding a body part toggle and randomly mutating your body every few minutes.",
@@ -11,21 +11,21 @@
     "email": "contact@vini2003.xyz"
   },
   "license": "MIT",
-  "icon": "assets/bodyshuffle/icon.png",
+  "icon": "assets/withermorph/icon.png",
   "environment": "*",
   "entrypoints": {
     "client": [
-      "vini2003.xyz.bodyshuffle.BodyShuffleClient"
+      "vini2003.xyz.withermorph.WitherMorphClient"
     ],
     "main": [
-      "vini2003.xyz.bodyshuffle.BodyShuffle"
+      "vini2003.xyz.withermorph.WitherMorph"
     ],
     "cardinal-components": [
-      "vini2003.xyz.bodyshuffle.registry.common.BodyShuffleComponents"
+      "vini2003.xyz.withermorph.registry.common.WitherMorphComponents"
     ]
   },
   "mixins": [
-    "bodyshuffle.mixins.json"
+    "withermorph.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.11.1",
@@ -34,8 +34,7 @@
   },
   "custom": {
     "cardinal-components": [
-      "bodyshuffle:body_parts",
-      "bodyshuffle:timer"
+      "withermorph:wither"
     ]
   }
 }
