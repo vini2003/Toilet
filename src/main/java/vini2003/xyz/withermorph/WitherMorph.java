@@ -19,5 +19,6 @@ public class WitherMorph implements ModInitializer {
 	public void onInitialize() {
 		WitherMorphCommands.initialize();
 		WitherMorphComponents.initialize();
+		WitherMorphNetworking.initialize();
 	}
 }

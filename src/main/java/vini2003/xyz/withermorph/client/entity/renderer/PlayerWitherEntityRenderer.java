@@ -2,31 +2,26 @@ package vini2003.xyz.withermorph.client.entity.renderer;
 
 import net.minecraft.client.network.AbstractClientPlayerEntity;
 import net.minecraft.client.render.entity.*;
-import net.minecraft.client.render.entity.WitherEntityRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
-import net.minecraft.client.render.entity.feature.WitherArmorFeatureRenderer;
-import net.minecraft.client.render.entity.model.PlayerEntityModel;
-import net.minecraft.client.render.entity.model.WitherEntityModel;
 import net.minecraft.client.util.math.MatrixStack;
-import net.minecraft.entity.boss.WitherEntity;
 import net.minecraft.entity.player.PlayerEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.BlockPos;
-import vini2003.xyz.withermorph.client.entity.model.WitherMorphEntityModel;
-import vini2003.xyz.withermorph.client.entity.renderer.feature.WitherMorphArmorFeatureRenderer;
+import vini2003.xyz.withermorph.client.entity.model.PlayerWitherEntityModel;
+import vini2003.xyz.withermorph.client.entity.renderer.feature.PlayerWitherArmorFeatureRenderer;
 import vini2003.xyz.withermorph.common.component.WitherComponent;
 import vini2003.xyz.withermorph.registry.common.WitherMorphComponents;
 
-public class WitherMorphEntityRenderer
-		extends LivingEntityRenderer<AbstractClientPlayerEntity, WitherMorphEntityModel<AbstractClientPlayerEntity>>implements FeatureRendererContext<AbstractClientPlayerEntity, WitherMorphEntityModel<AbstractClientPlayerEntity>> {
+public class PlayerWitherEntityRenderer
+		extends LivingEntityRenderer<AbstractClientPlayerEntity, PlayerWitherEntityModel<AbstractClientPlayerEntity>>implements FeatureRendererContext<AbstractClientPlayerEntity, PlayerWitherEntityModel<AbstractClientPlayerEntity>> {
 	private static final Identifier INVULNERABLE_TEXTURE = new Identifier("textures/entity/wither/wither_invulnerable.png");
 	private static final Identifier TEXTURE = new Identifier("textures/entity/wither/wither.png");
 	
 	private PlayerEntity player;
 	
-	public WitherMorphEntityRenderer(EntityRenderDispatcher entityRenderDispatcher, PlayerEntity player) {
-		super(entityRenderDispatcher, new WitherMorphEntityModel(0.0F), 1.0F);
-		this.addFeature(new WitherMorphArmorFeatureRenderer(this));
+	public PlayerWitherEntityRenderer(EntityRenderDispatcher entityRenderDispatcher, PlayerEntity player) {
+		super(entityRenderDispatcher, new PlayerWitherEntityModel(0.0F), 1.0F);
+		this.addFeature(new PlayerWitherArmorFeatureRenderer(this));
 		
 		this.player = player;
 	}

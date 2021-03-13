@@ -1,22 +1,18 @@
 package vini2003.xyz.withermorph.client.entity.renderer.feature;
 
 import net.minecraft.client.network.AbstractClientPlayerEntity;
-import net.minecraft.client.render.entity.feature.EnergySwirlOverlayFeatureRenderer;
 import net.minecraft.client.render.entity.feature.FeatureRendererContext;
-import net.minecraft.client.render.entity.feature.SkinOverlayOwner;
 import net.minecraft.client.render.entity.model.EntityModel;
-import net.minecraft.client.render.entity.model.WitherEntityModel;
-import net.minecraft.entity.boss.WitherEntity;
 import net.minecraft.util.Identifier;
 import net.minecraft.util.math.MathHelper;
 import vini2003.xyz.withermorph.client.entity.BoundEnergySwirlOverlayFeatureRenderer;
-import vini2003.xyz.withermorph.client.entity.model.WitherMorphEntityModel;
+import vini2003.xyz.withermorph.client.entity.model.PlayerWitherEntityModel;
 
-public class WitherMorphArmorFeatureRenderer extends BoundEnergySwirlOverlayFeatureRenderer<AbstractClientPlayerEntity, WitherMorphEntityModel<AbstractClientPlayerEntity>> {
+public class PlayerWitherArmorFeatureRenderer extends BoundEnergySwirlOverlayFeatureRenderer<AbstractClientPlayerEntity, PlayerWitherEntityModel<AbstractClientPlayerEntity>> {
 	private static final Identifier SKIN = new Identifier("textures/entity/wither/wither_armor.png");
-	private final WitherMorphEntityModel<AbstractClientPlayerEntity> model = new WitherMorphEntityModel(0.5F);
+	private final PlayerWitherEntityModel<AbstractClientPlayerEntity> model = new PlayerWitherEntityModel(0.5F);
 	
-	public WitherMorphArmorFeatureRenderer(FeatureRendererContext<AbstractClientPlayerEntity, WitherMorphEntityModel<AbstractClientPlayerEntity>> featureRendererContext) {
+	public PlayerWitherArmorFeatureRenderer(FeatureRendererContext<AbstractClientPlayerEntity, PlayerWitherEntityModel<AbstractClientPlayerEntity>> featureRendererContext) {
 		super(featureRendererContext);
 	}
 	

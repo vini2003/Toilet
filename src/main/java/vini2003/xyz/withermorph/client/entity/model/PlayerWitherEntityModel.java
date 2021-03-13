@@ -16,12 +16,12 @@ import net.minecraft.util.math.MathHelper;
 
 import java.util.Arrays;
 
-public class WitherMorphEntityModel<T extends AbstractClientPlayerEntity> extends PlayerEntityModel<T> {
+public class PlayerWitherEntityModel<T extends AbstractClientPlayerEntity> extends PlayerEntityModel<T> {
 	private final ModelPart[] bodySegments;
 	private final ModelPart[] heads;
 	private final ImmutableList<ModelPart> parts;
 	
-	public WitherMorphEntityModel(float scale) {
+	public PlayerWitherEntityModel(float scale) {
 		super(scale, false);
 		
 		this.textureWidth = 64;

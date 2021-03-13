@@ -1,7 +1,6 @@
 {
-  "key.bodyshuffle.open_body_part_selector": "Open body part selector",
-  "key.bodyshuffle.open_body_part_configurator": "Open body part configurator",
-  "category.bodyshuffle.bodyshuffle": "Body Shuffle",
-  "message.bodyshuffle.pause": "Paused body shuffling.",
-  "message.bodyshuffle.resume": "Resumed body shuffling."
+  "key.withermorph.toggle": "Toggle",
+  "category.withermorph.withermorph": "Wither Morph",
+  "message.withermorph.disabled": "§cDisabled§r Wither morph.",
+  "message.withermorph.enabled": "§aEnabled§r Wither morph."
 }
