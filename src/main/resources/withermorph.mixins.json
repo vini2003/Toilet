@@ -4,6 +4,7 @@
   "package": "vini2003.xyz.withermorph.mixin",
   "compatibilityLevel": "JAVA_8",
   "mixins": [
+    "common.EntityMixin",
     "common.PlayerEntityMixin"
   ],
   "client": [

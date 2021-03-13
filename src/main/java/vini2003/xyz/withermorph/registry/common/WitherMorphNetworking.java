@@ -9,6 +9,8 @@ import net.minecraft.server.network.ServerPlayerEntity;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Identifier;
 import vini2003.xyz.withermorph.WitherMorph;
+import vini2003.xyz.withermorph.client.dimension.DimensionRefresher;
+import vini2003.xyz.withermorph.client.util.ClientUtils;
 import vini2003.xyz.withermorph.common.component.WitherComponent;
 
 public class WitherMorphNetworking {
@@ -21,6 +23,8 @@ public class WitherMorphNetworking {
 			component.setActive(!component.isActive());
 			
 			WitherMorphComponents.WITHER.sync(player);
+			
+			((DimensionRefresher) player).withermorph_refreshDimensions();
 			
 			if (component.isActive()) {
 				player.sendMessage(new TranslatableText("message.withermorph.enabled"), true);
