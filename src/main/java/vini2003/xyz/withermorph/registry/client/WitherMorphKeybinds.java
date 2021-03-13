@@ -4,6 +4,7 @@ import io.netty.buffer.Unpooled;
 import net.fabricmc.fabric.api.client.event.lifecycle.v1.ClientTickEvents;
 import net.fabricmc.fabric.api.client.keybinding.v1.KeyBindingHelper;
 import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
+import net.minecraft.client.network.ClientPlayerEntity;
 import net.minecraft.client.options.KeyBinding;
 import net.minecraft.client.util.InputUtil;
 import net.minecraft.entity.player.PlayerEntity;
@@ -17,6 +18,8 @@ import vini2003.xyz.withermorph.registry.common.WitherMorphNetworking;
 
 public class WitherMorphKeybinds {
 	public static final KeyBinding keyToggle = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.withermorph.toggle", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_V, "category.withermorph.withermorph"));
+	public static final KeyBinding keyExplode = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.withermorph.explode", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_B, "category.withermorph.withermorph"));
+	public static final KeyBinding keyFire = KeyBindingHelper.registerKeyBinding(new KeyBinding("key.withermorph.fire", InputUtil.Type.KEYSYM, GLFW.GLFW_KEY_F, "category.withermorph.withermorph"));
 	
 	public static void initialize() {
 		ClientTickEvents.END_CLIENT_TICK.register((client) -> {
@@ -28,6 +31,20 @@ public class WitherMorphKeybinds {
 				((DimensionRefresher) ClientUtils.getPlayer()).withermorph_refreshDimensions();
 				
 				ClientPlayNetworking.send(WitherMorphNetworking.TOGGLE, new PacketByteBuf(Unpooled.buffer()));
+			}
+		});
+		
+		ClientTickEvents.END_CLIENT_TICK.register((client) -> {
+			if (keyExplode.wasPressed()) {
+				WitherComponent component = WitherMorphComponents.WITHER.get(ClientUtils.getPlayer());
+				
+				component.setExplosionTimer(220);
+			}
+		});
+		
+		ClientTickEvents.END_CLIENT_TICK.register((client) -> {
+			if (keyFire.wasPressed()) {
+				ClientPlayNetworking.send(WitherMorphNetworking.FIRE, new PacketByteBuf(Unpooled.buffer()));
 			}
 		});
 	}
