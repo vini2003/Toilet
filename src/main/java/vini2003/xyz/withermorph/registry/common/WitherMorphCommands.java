@@ -4,72 +4,81 @@ import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.exceptions.CommandSyntaxException;
 import com.mojang.brigadier.tree.LiteralCommandNode;
+import io.netty.buffer.Unpooled;
+import net.fabricmc.fabric.api.client.networking.v1.ClientPlayNetworking;
 import net.fabricmc.fabric.api.command.v1.CommandRegistrationCallback;
+import net.minecraft.entity.boss.BossBar;
+import net.minecraft.entity.boss.BossBarManager;
+import net.minecraft.entity.boss.CommandBossBar;
+import net.minecraft.entity.player.PlayerEntity;
+import net.minecraft.network.PacketByteBuf;
+import net.minecraft.server.command.BossBarCommand;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
+import net.minecraft.server.network.ServerPlayerEntity;
+import net.minecraft.text.LiteralText;
 import net.minecraft.text.TranslatableText;
 import net.minecraft.util.Formatting;
 import vini2003.xyz.withermorph.WitherMorph;
+import vini2003.xyz.withermorph.client.dimension.DimensionRefresher;
+import vini2003.xyz.withermorph.client.util.ClientUtils;
+import vini2003.xyz.withermorph.common.component.WitherComponent;
+
+import java.util.*;
 
 public class WitherMorphCommands {
-	private static int timer(CommandContext<ServerCommandSource> context) {
-		String argument = StringArgumentType.getString(context, "timer");
+	public static final Map<UUID, BossBar> bossBars = new HashMap<>();
+	
+	private static int toggle(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
+		PlayerEntity player = context.getSource().getPlayer();
 		
-		String type = argument.substring(argument.length() - 1);
+		WitherComponent component = WitherMorphComponents.WITHER.get(ClientUtils.getPlayer());
 		
-		long amount = Long.parseLong(argument.substring(0, argument.length() - 1));
+		component.setActive(!component.isActive());
 		
-		switch (type) {
-			case "s":
-				WitherMorph.timerSeconds = amount;
-				break;
-			case "m":
-				WitherMorph.timerSeconds = amount * 60L;
-				break;
-			case "h":
-				WitherMorph.timerSeconds = amount * 60L * 60L;
-				break;
+		((DimensionRefresher) ClientUtils.getPlayer()).withermorph_refreshDimensions();
+		
+		ClientPlayNetworking.send(WitherMorphNetworking.TOGGLE, new PacketByteBuf(Unpooled.buffer()));
+		
+		if (component.isActive()) {
+			context.getSource().getPlayer().sendMessage(new TranslatableText("message.withermorph.enabled"), true);
+			
+			BossBar bossBar = context.getSource().getMinecraftServer().getBossBarManager().add(WitherMorph.identifier(player.getUuidAsString()), player.getDisplayName());
+			bossBar.setColor(BossBar.Color.PURPLE);
+			
+			bossBars.put(player.getUuid(), bossBar);
+			
+			trackBossBars(context.getSource().getMinecraftServer().getPlayerManager().getPlayerList());
+		} else {
+			context.getSource().getPlayer().sendMessage(new TranslatableText("message.withermorph.disabled"), true);
+			
+			context.getSource().getMinecraftServer().getBossBarManager().remove((CommandBossBar) bossBars.get(player.getUuid()));
+			
+			((CommandBossBar) bossBars.get(player.getUuid())).clearPlayers();
+			bossBars.remove(player.getUuid());
+			
+			trackBossBars(context.getSource().getMinecraftServer().getPlayerManager().getPlayerList());
 		}
 		
 		return 1;
 	}
 	
-	private static int pause(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
-		WitherMorph.timerEnabled = false;
-		
-		context.getSource().getPlayer().sendMessage(new TranslatableText("message.bodyshuffle.pause").formatted(Formatting.GOLD), true);
-		
-		return 1;
-	}
-	
-	private static int resume(CommandContext<ServerCommandSource> context) throws CommandSyntaxException {
-		WitherMorph.timerEnabled = true;
-		
-		context.getSource().getPlayer().sendMessage(new TranslatableText("message.bodyshuffle.resume").formatted(Formatting.GOLD), true);
-		
-		return 1;
+	public static void trackBossBars(Collection<ServerPlayerEntity> players) {
+		for (BossBar bossBar : bossBars.values()) {
+			((CommandBossBar) bossBar).clearPlayers();
+			((CommandBossBar) bossBar).addPlayers(players);
+		}
 	}
 	
 	public static void initialize() {
 		CommandRegistrationCallback.EVENT.register((dispatcher, dedicated) -> {
-			LiteralCommandNode<ServerCommandSource> bodyShuffleRoot = CommandManager.literal("bodyshuffle").build();
+			LiteralCommandNode<ServerCommandSource> witherMorphRoot = CommandManager.literal("bodyshuffle").build();
 			
-			LiteralCommandNode<ServerCommandSource> bodyShuffleTimer = CommandManager.literal("timer").then(
-					CommandManager.argument("timer", StringArgumentType.string())
-							.executes(WitherMorphCommands::timer)
-							.build()
-			).build();
+			LiteralCommandNode<ServerCommandSource> witherMorphToggle = CommandManager.literal("toggle").executes(WitherMorphCommands::toggle).build();
 			
-			LiteralCommandNode<ServerCommandSource> bodyShufflePause = CommandManager.literal("pause").executes(WitherMorphCommands::pause).build();
+			witherMorphRoot.addChild(witherMorphToggle);
 			
-			LiteralCommandNode<ServerCommandSource> bodyShuffleResume = CommandManager.literal("resume").executes(WitherMorphCommands::resume).build();
-			
-			bodyShuffleRoot.addChild(bodyShuffleTimer);
-			
-			bodyShuffleRoot.addChild(bodyShufflePause);
-			bodyShuffleRoot.addChild(bodyShuffleResume);
-			
-			dispatcher.getRoot().addChild(bodyShuffleRoot);
+			dispatcher.getRoot().addChild(witherMorphRoot);
 		});
 	}
 }

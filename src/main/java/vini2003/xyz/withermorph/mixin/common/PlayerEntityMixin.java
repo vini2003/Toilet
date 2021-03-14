@@ -15,6 +15,7 @@ import org.spongepowered.asm.mixin.injection.callback.CallbackInfoReturnable;
 import vini2003.xyz.withermorph.client.dimension.DimensionRefresher;
 import vini2003.xyz.withermorph.client.util.ClientUtils;
 import vini2003.xyz.withermorph.common.component.WitherComponent;
+import vini2003.xyz.withermorph.registry.common.WitherMorphCommands;
 import vini2003.xyz.withermorph.registry.common.WitherMorphComponents;
 
 @Mixin(PlayerEntity.class)
@@ -55,17 +56,23 @@ public class PlayerEntityMixin implements SkinOverlayOwner {
 	void withermorph_tick(CallbackInfo ci) {
 		WitherComponent component = WitherMorphComponents.WITHER.get(this);
 		
+		PlayerEntity player = ((PlayerEntity) (Object) this);
+		
 		if (component.getExplosionTimer() > -1) {
 			component.setExplosionTimer(component.getExplosionTimer() - 1);
 			
 			if (component.getExplosionTimer() == 0) {
-				PlayerEntity player = ((PlayerEntity) (Object) this);
-				
 				player.world.createExplosion(null, player.getX(), player.getEyeY(), player.getZ(), 7.0F, false, Explosion.DestructionType.DESTROY);
 				
 				player.world.syncGlobalEvent(1023, player.getBlockPos(), 0);
 				
 				player.move(MovementType.SELF, new Vec3d(0.0D, 0.25D, 0.0D));
+			}
+		}
+		
+		if (!player.world.isClient) {
+			if (component.isActive()) {
+				WitherMorphCommands.bossBars.get(player.getUuid()).setPercent(player.getHealth() / player.getMaxHealth());
 			}
 		}
 	}

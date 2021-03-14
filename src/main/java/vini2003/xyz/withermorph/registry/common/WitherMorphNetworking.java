@@ -29,12 +29,6 @@ public class WitherMorphNetworking {
 			WitherMorphComponents.WITHER.sync(player);
 			
 			((DimensionRefresher) player).withermorph_refreshDimensions();
-			
-			if (component.isActive()) {
-				player.sendMessage(new TranslatableText("message.withermorph.enabled"), true);
-			} else {
-				player.sendMessage(new TranslatableText("message.withermorph.disabled"), true);
-			}
 		});
 	}
 	
