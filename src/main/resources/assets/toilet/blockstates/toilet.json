@@ -1,0 +1,250 @@
+{
+  "variants": {
+    "occupied=false,clogged=false,pee=false,poop=false,facing=north": {
+      "model": "toilet:block/toilet_clean"
+    },
+    "occupied=false,clogged=false,pee=true,poop=false,facing=north": {
+      "model": "toilet:block/toilet_pee"
+    },
+    "occupied=false,clogged=false,pee=false,poop=true,facing=north": {
+      "model": "toilet:block/toilet_poop"
+    },
+    "occupied=false,clogged=false,pee=true,poop=true,facing=north": {
+      "model": "toilet:block/toilet_pee_poop"
+    },
+    "occupied=true,clogged=false,pee=false,poop=false,facing=north": {
+      "model": "toilet:block/toilet_clean"
+    },
+    "occupied=true,clogged=false,pee=true,poop=false,facing=north": {
+      "model": "toilet:block/toilet_pee"
+    },
+    "occupied=true,clogged=false,pee=false,poop=true,facing=north": {
+      "model": "toilet:block/toilet_poop"
+    },
+    "occupied=true,clogged=false,pee=true,poop=true,facing=north": {
+      "model": "toilet:block/toilet_pee_poop"
+    },
+    "occupied=false,clogged=true,pee=false,poop=false,facing=north": {
+      "model": "toilet:block/toilet_clean"
+    },
+    "occupied=false,clogged=true,pee=true,poop=false,facing=north": {
+      "model": "toilet:block/toilet_pee"
+    },
+    "occupied=false,clogged=true,pee=false,poop=true,facing=north": {
+      "model": "toilet:block/toilet_poop"
+    },
+    "occupied=false,clogged=true,pee=true,poop=true,facing=north": {
+      "model": "toilet:block/toilet_pee_poop"
+    },
+    "occupied=true,clogged=true,pee=false,poop=false,facing=north": {
+      "model": "toilet:block/toilet_clean"
+    },
+    "occupied=true,clogged=true,pee=true,poop=false,facing=north": {
+      "model": "toilet:block/toilet_pee"
+    },
+    "occupied=true,clogged=true,pee=false,poop=true,facing=north": {
+      "model": "toilet:block/toilet_poop"
+    },
+    "occupied=true,clogged=true,pee=true,poop=true,facing=north": {
+      "model": "toilet:block/toilet_pee_poop"
+    },
+
+
+    "occupied=false,clogged=false,pee=false,poop=false,facing=south": {
+      "model": "toilet:block/toilet_clean",
+      "y": 180
+    },
+    "occupied=false,clogged=false,pee=true,poop=false,facing=south": {
+      "model": "toilet:block/toilet_pee",
+      "y": 180
+    },
+    "occupied=false,clogged=false,pee=false,poop=true,facing=south": {
+      "model": "toilet:block/toilet_poop",
+      "y": 180
+    },
+    "occupied=false,clogged=false,pee=true,poop=true,facing=south": {
+      "model": "toilet:block/toilet_pee_poop",
+      "y": 180
+    },
+    "occupied=true,clogged=false,pee=false,poop=false,facing=south": {
+      "model": "toilet:block/toilet_clean",
+      "y": 180
+    },
+    "occupied=true,clogged=false,pee=true,poop=false,facing=south": {
+      "model": "toilet:block/toilet_pee",
+      "y": 180
+    },
+    "occupied=true,clogged=false,pee=false,poop=true,facing=south": {
+      "model": "toilet:block/toilet_poop",
+      "y": 180
+    },
+    "occupied=true,clogged=false,pee=true,poop=true,facing=south": {
+      "model": "toilet:block/toilet_pee_poop",
+      "y": 180
+    },
+    "occupied=false,clogged=true,pee=false,poop=false,facing=south": {
+      "model": "toilet:block/toilet_clean",
+      "y": 180
+    },
+    "occupied=false,clogged=true,pee=true,poop=false,facing=south": {
+      "model": "toilet:block/toilet_pee",
+      "y": 180
+    },
+    "occupied=false,clogged=true,pee=false,poop=true,facing=south": {
+      "model": "toilet:block/toilet_poop",
+      "y": 180
+    },
+    "occupied=false,clogged=true,pee=true,poop=true,facing=south": {
+      "model": "toilet:block/toilet_pee_poop",
+      "y": 180
+    },
+    "occupied=true,clogged=true,pee=false,poop=false,facing=south": {
+      "model": "toilet:block/toilet_clean",
+      "y": 180
+    },
+    "occupied=true,clogged=true,pee=true,poop=false,facing=south": {
+      "model": "toilet:block/toilet_pee",
+      "y": 180
+    },
+    "occupied=true,clogged=true,pee=false,poop=true,facing=south": {
+      "model": "toilet:block/toilet_poop",
+      "y": 180
+    },
+    "occupied=true,clogged=true,pee=true,poop=true,facing=south": {
+      "model": "toilet:block/toilet_pee_poop",
+      "y": 180
+    },
+
+
+    "occupied=false,clogged=false,pee=false,poop=false,facing=west": {
+      "model": "toilet:block/toilet_clean",
+      "y": 270
+    },
+    "occupied=false,clogged=false,pee=true,poop=false,facing=west": {
+      "model": "toilet:block/toilet_pee",
+      "y": 270
+    },
+    "occupied=false,clogged=false,pee=false,poop=true,facing=west": {
+      "model": "toilet:block/toilet_poop",
+      "y": 270
+    },
+    "occupied=false,clogged=false,pee=true,poop=true,facing=west": {
+      "model": "toilet:block/toilet_pee_poop",
+      "y": 270
+    },
+    "occupied=true,clogged=false,pee=false,poop=false,facing=west": {
+      "model": "toilet:block/toilet_clean",
+      "y": 270
+    },
+    "occupied=true,clogged=false,pee=true,poop=false,facing=west": {
+      "model": "toilet:block/toilet_pee",
+      "y": 270
+    },
+    "occupied=true,clogged=false,pee=false,poop=true,facing=west": {
+      "model": "toilet:block/toilet_poop",
+      "y": 270
+    },
+    "occupied=true,clogged=false,pee=true,poop=true,facing=west": {
+      "model": "toilet:block/toilet_pee_poop",
+      "y": 270
+    },
+    "occupied=false,clogged=true,pee=false,poop=false,facing=west": {
+      "model": "toilet:block/toilet_clean",
+      "y": 270
+    },
+    "occupied=false,clogged=true,pee=true,poop=false,facing=west": {
+      "model": "toilet:block/toilet_pee",
+      "y": 270
+    },
+    "occupied=false,clogged=true,pee=false,poop=true,facing=west": {
+      "model": "toilet:block/toilet_poop",
+      "y": 270
+    },
+    "occupied=false,clogged=true,pee=true,poop=true,facing=west": {
+      "model": "toilet:block/toilet_pee_poop",
+      "y": 270
+    },
+    "occupied=true,clogged=true,pee=false,poop=false,facing=west": {
+      "model": "toilet:block/toilet_clean",
+      "y": 270
+    },
+    "occupied=true,clogged=true,pee=true,poop=false,facing=west": {
+      "model": "toilet:block/toilet_pee",
+      "y": 270
+    },
+    "occupied=true,clogged=true,pee=false,poop=true,facing=west": {
+      "model": "toilet:block/toilet_poop",
+      "y": 270
+    },
+    "occupied=true,clogged=true,pee=true,poop=true,facing=west": {
+      "model": "toilet:block/toilet_pee_poop",
+      "y": 270
+    },
+
+
+    "occupied=false,clogged=false,pee=false,poop=false,facing=east": {
+      "model": "toilet:block/toilet_clean",
+      "y": 90
+    },
+    "occupied=false,clogged=false,pee=true,poop=false,facing=east": {
+      "model": "toilet:block/toilet_pee",
+      "y": 90
+    },
+    "occupied=false,clogged=false,pee=false,poop=true,facing=east": {
+      "model": "toilet:block/toilet_poop",
+      "y": 90
+    },
+    "occupied=false,clogged=false,pee=true,poop=true,facing=east": {
+      "model": "toilet:block/toilet_pee_poop",
+      "y": 90
+    },
+    "occupied=true,clogged=false,pee=false,poop=false,facing=east": {
+      "model": "toilet:block/toilet_clean",
+      "y": 90
+    },
+    "occupied=true,clogged=false,pee=true,poop=false,facing=east": {
+      "model": "toilet:block/toilet_pee",
+      "y": 90
+    },
+    "occupied=true,clogged=false,pee=false,poop=true,facing=east": {
+      "model": "toilet:block/toilet_poop",
+      "y": 90
+    },
+    "occupied=true,clogged=false,pee=true,poop=true,facing=east": {
+      "model": "toilet:block/toilet_pee_poop",
+      "y": 90
+    },
+    "occupied=false,clogged=true,pee=false,poop=false,facing=east": {
+      "model": "toilet:block/toilet_clean",
+      "y": 90
+    },
+    "occupied=false,clogged=true,pee=true,poop=false,facing=east": {
+      "model": "toilet:block/toilet_pee",
+      "y": 90
+    },
+    "occupied=false,clogged=true,pee=false,poop=true,facing=east": {
+      "model": "toilet:block/toilet_poop",
+      "y": 90
+    },
+    "occupied=false,clogged=true,pee=true,poop=true,facing=east": {
+      "model": "toilet:block/toilet_pee_poop",
+      "y": 90
+    },
+    "occupied=true,clogged=true,pee=false,poop=false,facing=east": {
+      "model": "toilet:block/toilet_clean",
+      "y": 90
+    },
+    "occupied=true,clogged=true,pee=true,poop=false,facing=east": {
+      "model": "toilet:block/toilet_pee",
+      "y": 90
+    },
+    "occupied=true,clogged=true,pee=false,poop=true,facing=east": {
+      "model": "toilet:block/toilet_poop",
+      "y": 90
+    },
+    "occupied=true,clogged=true,pee=true,poop=true,facing=east": {
+      "model": "toilet:block/toilet_pee_poop",
+      "y": 90
+    }
+  }
+}

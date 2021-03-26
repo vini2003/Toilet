@@ -1,6 +1,6 @@
-# Body Shuffle
+# Toilet
 
-This mod randomly mutates your body parts every few minutes, and allows you to toggle them at will.
+This mod adds a toilet to Minecraft; and a Plunger to deal with certain circumstances.
 
 # Installing
 
@@ -10,4 +10,6 @@ This mod randomly mutates your body parts every few minutes, and allows you to t
 
 # Using
 
-`V` opens the body part selector.
+`Up Arrow` pees.
+
+`Down Arrow` poops.

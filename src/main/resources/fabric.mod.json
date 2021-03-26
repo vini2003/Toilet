@@ -1,9 +1,9 @@
 {
   "schemaVersion": 1,
-  "id": "withermorph",
+  "id": "toilet",
   "version": "${version}",
-  "name": "Body Shuffle",
-  "description": "A mod adding a body part toggle and randomly mutating your body every few minutes.",
+  "name": "Toilet",
+  "description": "A mod adding a toilet to Minecraft.",
   "authors": [
     "vini2003"
   ],
@@ -11,30 +11,22 @@
     "email": "contact@vini2003.xyz"
   },
   "license": "MIT",
-  "icon": "assets/withermorph/icon.png",
+  "icon": "assets/toilet/icon.png",
   "environment": "*",
   "entrypoints": {
     "client": [
-      "vini2003.xyz.withermorph.WitherMorphClient"
+      "vini2003.xyz.toilet.ToiletClient"
     ],
     "main": [
-      "vini2003.xyz.withermorph.WitherMorph"
-    ],
-    "cardinal-components": [
-      "vini2003.xyz.withermorph.registry.common.WitherMorphComponents"
+      "vini2003.xyz.toilet.Toilet"
     ]
   },
   "mixins": [
-    "withermorph.mixins.json"
+    "toilet.mixins.json"
   ],
   "depends": {
     "fabricloader": ">=0.11.1",
     "fabric": ">=0.30.0+1.16",
     "minecraft": "1.16.5"
-  },
-  "custom": {
-    "cardinal-components": [
-      "withermorph:wither"
-    ]
   }
 }
